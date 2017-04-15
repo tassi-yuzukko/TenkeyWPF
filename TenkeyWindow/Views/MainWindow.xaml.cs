@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TenkeyViewModel.ViewModels;
 
-namespace TenkeyWindow
+namespace TenkeyViewModel.Views
 {
 	/// <summary>
 	/// MainWindow.xaml の相互作用ロジック
@@ -23,6 +24,8 @@ namespace TenkeyWindow
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			this.DataContext = new MainWindowViewModel();
 		}
 	}
 }
