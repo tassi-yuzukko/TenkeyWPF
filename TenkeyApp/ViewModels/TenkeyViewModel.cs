@@ -31,7 +31,7 @@ namespace TenkeyApp.ViewModels
 			for (TenkeyButtonType type = TenkeyButtonType.Btn_0; type <= TenkeyButtonType.Btn_F; type++)
 			{
 				string btnStr = TenkeyButtonName.GetTenkeyButtonTypeName(type);
-				_tenkeyButton.Add(btnStr, new ViewModelCommand(() => { TenkeyCopy.NumStr += btnStr; }));
+				_tenkeyButton.Add(btnStr, new ViewModelCommand(() => { TenkeyCopy.NumStr += btnStr; }, () => { return TenkeyCopy.NumStr.Length < TenkeyCopy.MaxLength; }));
 			}
 
 			// テンキーボタンテーブル作成（左上から順番）

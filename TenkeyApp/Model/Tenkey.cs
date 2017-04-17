@@ -60,6 +60,7 @@ namespace TenkeyApp.Model
 
 		public Tenkey()
 		{
+			NumStr = "";
 			Mode = TenkeyMode.Dec;
 			MaxLength = 4;
 		}
