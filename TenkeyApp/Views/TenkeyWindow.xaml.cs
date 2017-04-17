@@ -16,15 +16,17 @@ using TenkeyViewModel.ViewModels;
 namespace TenkeyViewModel.Views
 {
 	/// <summary>
-	/// TenkeyWindow.xaml の相互作用ロジック
+	/// TenkeyApp.xaml の相互作用ロジック
 	/// </summary>
-	public partial class Tenkey : Window
+	public partial class TenkeyWindow : Window
 	{
-		public Tenkey()
+		public TenkeyWindow()
 		{
 			InitializeComponent();
 
-			this.DataContext = new ViewModels.TenkeyViewModel();
+			// ここに何も追加しなくても
+			// MainWindow.xaml のDataTemplateによって
+			// View と ViewModel がバインドされる
 		}
 	}
 }
