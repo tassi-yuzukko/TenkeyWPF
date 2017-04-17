@@ -9,6 +9,7 @@
         xmlns:v="clr-namespace:TenkeyApp.Views"
         xmlns:vm="clr-namespace:TenkeyApp.ViewModels"
         xmlns:local="clr-namespace:TenkeyApp.Views"
+        xmlns:conv="clr-namespace:TenkeyApp.Views.Converter"
         mc:Ignorable="d" FontSize="30" ResizeMode="NoResize"
         Title="MainWindow" Height="271" Width="278">
 
@@ -22,6 +23,10 @@
         </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
 
+    <Window.Resources>
+        <conv:RadioButtonConverter x:Key="EnumConverter" />
+    </Window.Resources>
+
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="46" Margin="10,172,0,0" VerticalAlignment="Top" Width="170">
             <Label Content="{Binding TenkeyObj.NumStr}" HorizontalAlignment="Left" Height="46" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="170" VerticalContentAlignment="Center"/>
@@ -29,8 +34,8 @@
         <Button Content="^o^" HorizontalAlignment="Left" Height="46" Margin="185,172,0,0" VerticalAlignment="Top" Width="66" Command="{Binding DoButton}"/>
         <GroupBox Header="入力モード" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="241" FontSize="16">
             <StackPanel Orientation="Horizontal">
-                <RadioButton Content="10進数" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center" IsChecked="True"/>
-                <RadioButton Content="16進数" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center" IsChecked="False"/>
+                <RadioButton Content="10進数" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center" IsChecked="{Binding TenkeyObj.Mode, ConverterParameter=Dec, Converter={StaticResource EnumConverter}}"/>
+                <RadioButton Content="16進数" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center" IsChecked="{Binding TenkeyObj.Mode, ConverterParameter=Hex, Converter={StaticResource EnumConverter}}"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="入力桁数" HorizontalAlignment="Left" Height="70" Margin="10,85,0,0" VerticalAlignment="Top" Width="241" FontSize="16">
