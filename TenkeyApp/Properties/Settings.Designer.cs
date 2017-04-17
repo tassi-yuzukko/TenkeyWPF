@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TenkeyViewModel.Properties
+namespace TenkeyApp.Properties
 {
 
 

@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TenkeyViewModel.ViewModels;
+using TenkeyApp.ViewModels;
 
-namespace TenkeyViewModel.Views
+namespace TenkeyApp.Views
 {
 	/// <summary>
 	/// MainWindow.xaml の相互作用ロジック

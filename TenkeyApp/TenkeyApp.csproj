@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Tenkey.cs" />
+    <Compile Include="Model\TenkeyButtonType.cs" />
     <Compile Include="ViewModels\TenkeyViewModel.cs" />
     <Compile Include="Views\TenkeyWindow.xaml.cs">
       <DependentUpon>TenkeyWindow.xaml</DependentUpon>

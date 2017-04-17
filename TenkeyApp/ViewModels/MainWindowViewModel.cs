@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TenkeyApp.Model;
 
-namespace TenkeyViewModel.ViewModels
+namespace TenkeyApp.ViewModels
 {
 	class MainWindowViewModel : ViewModel
 	{
