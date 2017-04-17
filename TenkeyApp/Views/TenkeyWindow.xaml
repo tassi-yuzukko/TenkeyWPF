@@ -23,7 +23,7 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <TextBox Name="NumStr" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Name="NumStr" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding TenkeyCopy.NumStr}"/>
         <UniformGrid  Name="ButtonGrid" HorizontalAlignment="Left" Height="200" Margin="10,65,0,0" VerticalAlignment="Top" Width="250" Columns ="5" Rows="4">
             <!--Grid内のボタン配置はコードビハインド内で動的に定義-->
         </UniformGrid>

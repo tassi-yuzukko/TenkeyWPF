@@ -41,42 +41,14 @@ namespace TenkeyApp.Views
 		{
 			var vm = (TenkeyViewModel)this.DataContext;
 
-			// テキストについて手動パインディング
-			Binding bi = new Binding("TenkeyCopy.NumStr");
-			this.NumStr.SetBinding(TextBox.TextProperty, bi);
-
 			// ボタンの作成
 			foreach(var cmd in vm.TenkeyBtnTbl)
 			{
-				this.ButtonGrid.Children.Add(new Button() { Content = tenkeyContentsTbl[cmd.Key], Command = cmd.Value, FontSize = 20});
+				var button = new Button() { Content = TenkeyButtonName.GetTenkeyButtonTypeName(cmd.Key), FontSize = 20 };
+				var binding = new Binding(cmd.Value);
+				button.SetBinding(Button.CommandProperty, binding);
+				this.ButtonGrid.Children.Add(button);
 			}
 		}
-
-		/// <summary>
-		/// ボタンの表示名テーブル
-		/// </summary>
-		private IDictionary<TenkeyButtonType, string> tenkeyContentsTbl = new Dictionary<TenkeyButtonType, string>()
-		{
-			{ TenkeyButtonType.Btn_0, "0"},
-			{ TenkeyButtonType.Btn_1, "1"},
-			{ TenkeyButtonType.Btn_2, "2"},
-			{ TenkeyButtonType.Btn_3, "3"},
-			{ TenkeyButtonType.Btn_4, "4"},
-			{ TenkeyButtonType.Btn_5, "5"},
-			{ TenkeyButtonType.Btn_6, "6"},
-			{ TenkeyButtonType.Btn_7, "7"},
-			{ TenkeyButtonType.Btn_8, "8"},
-			{ TenkeyButtonType.Btn_9, "9"},
-			{ TenkeyButtonType.Btn_A, "A"},
-			{ TenkeyButtonType.Btn_B, "B"},
-			{ TenkeyButtonType.Btn_C, "C"},
-			{ TenkeyButtonType.Btn_D, "D"},
-			{ TenkeyButtonType.Btn_E, "E"},
-			{ TenkeyButtonType.Btn_F, "F"},
-			{ TenkeyButtonType.Btn_Clear, "Clr"},
-			{ TenkeyButtonType.Btn_Backspace, "BS"},
-			{ TenkeyButtonType.Btn_Cancel, "戻る"},
-			{ TenkeyButtonType.Btn_Enter, "OK"},
-		};
 	}
 }
