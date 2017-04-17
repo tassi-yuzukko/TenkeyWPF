@@ -4,8 +4,18 @@ using System.Collections.ObjectModel;
 
 namespace TenkeyApp.Model
 {
+	public enum TenkeyMode
+	{
+		Dec,	// 10進数モード
+		Hex,	// 16進数モード
+	};
+
 	class Tenkey : NotificationObject, ICloneable
 	{
+		/// <summary>
+		/// テンキー入力された文字列
+		/// </summary>
+		#region NumStr
 		private string _numStr;
 		public string NumStr
 		{
@@ -17,6 +27,42 @@ namespace TenkeyApp.Model
 				RaisePropertyChanged(nameof(NumStr));
 			}
 		}
+		#endregion
+
+		#region MaxLength
+		private uint _maxLength;
+		public uint MaxLength
+		{
+			get { return _maxLength; }
+			set
+			{
+				if (_maxLength == value) return;
+				if ((value < 1) || (6 < value)) return;
+				_maxLength = value;
+				RaisePropertyChanged(nameof(MaxLength));
+			}
+		}
+		#endregion
+
+		#region Mode
+		private TenkeyMode _mode;
+		public TenkeyMode Mode
+	{
+			get { return _mode; }
+			set
+			{
+				if (_mode == value) return;
+				_mode = value;
+				RaisePropertyChanged(nameof(Mode));
+			}
+		}
+		#endregion
+
+		public Tenkey()
+		{
+			Mode = TenkeyMode.Dec;
+			MaxLength = 4;
+		}
 
 		/// <summary>
 		/// ICloneable
@@ -27,6 +73,8 @@ namespace TenkeyApp.Model
 			return new Tenkey()
 			{
 				NumStr = this.NumStr,
+				MaxLength = this.MaxLength,
+				Mode = this.Mode,
 			};
 		}
 	}
