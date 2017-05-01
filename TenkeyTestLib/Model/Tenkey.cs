@@ -2,7 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 
-namespace TenkeyApp.Model
+namespace TenkeyTestLib.Model
 {
 	public enum TenkeyMode
 	{
@@ -10,7 +10,7 @@ namespace TenkeyApp.Model
 		Hex,	// 16進数モード
 	};
 
-	class Tenkey : NotificationObject, ICloneable
+	public class Tenkey : NotificationObject, ICloneable
 	{
 		/// <summary>
 		/// テンキー入力された文字列

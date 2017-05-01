@@ -9,11 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
-using TenkeyApp.Model;
+using TenkeyTestLib.Model;
 
-namespace TenkeyApp.ViewModels
+namespace TenkeyTestLib.ViewModels
 {
-	class TenkeyViewModel : ViewModel
+	public class TenkeyViewModel : ViewModel
 	{
 		IDictionary<TenkeyButtonType, string> _tenkeyBtnTbl;
 		public IDictionary<TenkeyButtonType, string> TenkeyBtnTbl { get => _tenkeyBtnTbl; set => _tenkeyBtnTbl = value; }

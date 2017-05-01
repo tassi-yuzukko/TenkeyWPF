@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TenkeyApp.Model
+namespace TenkeyTestLib.Model
 {
 	/// <summary>
 	/// テンキーボタン識別子

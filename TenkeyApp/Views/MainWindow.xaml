@@ -6,7 +6,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-        xmlns:v="clr-namespace:TenkeyApp.Views"
+        xmlns:v="clr-namespace:TenkeyTestLib.Views;assembly=TenkeyTestLib"
         xmlns:vm="clr-namespace:TenkeyApp.ViewModels"
         xmlns:local="clr-namespace:TenkeyApp.Views"
         xmlns:conv="clr-namespace:TenkeyApp.Views.Converter"

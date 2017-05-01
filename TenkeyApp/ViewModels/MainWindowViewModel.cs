@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TenkeyApp.Model;
+using TenkeyTestLib.Model;
+using TenkeyTestLib.ViewModels;
 
 namespace TenkeyApp.ViewModels
 {

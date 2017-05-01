@@ -12,10 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TenkeyApp.Model;
-using TenkeyApp.ViewModels;
+using TenkeyTestLib.Model;
+using TenkeyTestLib.ViewModels;
 
-namespace TenkeyApp.Views
+namespace TenkeyTestLib.Views
 {
 	/// <summary>
 	/// TenkeyApp.xaml の相互作用ロジック
