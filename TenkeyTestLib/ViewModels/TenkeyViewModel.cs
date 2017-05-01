@@ -30,7 +30,7 @@ namespace TenkeyTestLib.ViewModels
 			_tenkeyButton = new Dictionary<string, ViewModelCommand>();
 			for (TenkeyButtonType type = TenkeyButtonType.Btn_0; type <= TenkeyButtonType.Btn_F; type++)
 			{
-				var btnType = type;	// ここで変数定義せずにtypeをそのまま使うと、遅延評価でtypeは常にBtn_Fになってしまう
+				var btnType = type;	// ここで変数定義せずにtypeをそのまま使うと、ラムダ式ないでは遅延評価でtypeは常にBtn_Fになってしまう
 				string btnStr = TenkeyButtonName.GetTenkeyButtonTypeName(type);
 				_tenkeyButton.Add(btnStr, new ViewModelCommand(() => { TenkeyCopy.AddStr(btnType); }, () => { return TenkeyCopy.CheckHexOrDec(btnType); }));
 			}

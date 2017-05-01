@@ -12,6 +12,9 @@ namespace TenkeyTestLib.Model
 
 	public class Tenkey : NotificationObject, ICloneable
 	{
+		const int MinStrLength = 1;
+		const int MaxStrLength = 9;
+
 		/// <summary>
 		/// テンキー入力された文字列
 		/// </summary>
@@ -37,7 +40,7 @@ namespace TenkeyTestLib.Model
 			set
 			{
 				if (_maxLength == value) return;
-				if ((value < 1) || (6 < value)) return;
+				if ((value < MinStrLength) || (MaxStrLength < value)) return;
 				_maxLength = value;
 				RaisePropertyChanged(nameof(MaxLength));
 			}
