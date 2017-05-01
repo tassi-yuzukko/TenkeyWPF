@@ -30,9 +30,9 @@ namespace TenkeyTestLib.ViewModels
 			_tenkeyButton = new Dictionary<string, ViewModelCommand>();
 			for (TenkeyButtonType type = TenkeyButtonType.Btn_0; type <= TenkeyButtonType.Btn_F; type++)
 			{
-				var btnType = type;
+				var btnType = type;	// ここで変数定義せずにtypeをそのまま使うと、遅延評価でtypeは常にBtn_Fになってしまう
 				string btnStr = TenkeyButtonName.GetTenkeyButtonTypeName(type);
-				_tenkeyButton.Add(btnStr, new ViewModelCommand(() => { if(TenkeyCopy.NumStr.Length < TenkeyCopy.MaxLength) TenkeyCopy.NumStr += btnStr; }, () => { return CheckHexOrDec(btnType); }));
+				_tenkeyButton.Add(btnStr, new ViewModelCommand(() => { TenkeyCopy.AddStr(btnType); }, () => { return TenkeyCopy.CheckHexOrDec(btnType); }));
 			}
 
 			// テンキーボタンテーブル作成（左上から順番）
@@ -118,33 +118,16 @@ namespace TenkeyTestLib.ViewModels
 			}
 		}
 
-		private bool CheckHexOrDec(TenkeyButtonType type)
-		{
-			if (this.TenkeyCopy == null)
-			{
-				return false;
-			}
-
-			if (this.TenkeyCopy.Mode == TenkeyMode.Dec)
-			{
-				if ((TenkeyButtonType.Btn_A <= type) && (type <= TenkeyButtonType.Btn_F))
-				{
-					return false;
-				}
-			}
-
-			return true;
-		}
 		#endregion
 
 		#region BsButton
 		private ViewModelCommand _bsButton;
-		public ViewModelCommand BsButton => (_bsButton = _bsButton ?? new ViewModelCommand(() => { if(TenkeyCopy.NumStr.Length > 0) TenkeyCopy.NumStr = TenkeyCopy.NumStr.Remove(TenkeyCopy.NumStr.Length - 1); }));
+		public ViewModelCommand BsButton => (_bsButton = _bsButton ?? new ViewModelCommand(() => { TenkeyCopy.DelStr(); }));
 		#endregion
 
 		#region ClearButton
 		private ViewModelCommand _clearButton;
-		public ViewModelCommand ClearButton => (_clearButton = _clearButton ?? new ViewModelCommand(() => { TenkeyCopy.NumStr = ""; }));
+		public ViewModelCommand ClearButton => (_clearButton = _clearButton ?? new ViewModelCommand(() => { TenkeyCopy.ClrStr(); }));
 		#endregion
 	}
 }

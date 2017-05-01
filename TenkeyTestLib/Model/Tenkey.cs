@@ -78,5 +78,57 @@ namespace TenkeyTestLib.Model
 				Mode = this.Mode,
 			};
 		}
+
+		/// <summary>
+		/// １０進数モードか１６進数モードかで値入力チェックする
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		public bool CheckHexOrDec(TenkeyButtonType type)
+		{
+			if (this.Mode == TenkeyMode.Dec)
+			{
+				if ((TenkeyButtonType.Btn_A <= type) && (type <= TenkeyButtonType.Btn_F))
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		/// <summary>
+		/// 値を追加する
+		/// </summary>
+		/// <param name="type"></param>
+		public void AddStr(TenkeyButtonType type)
+		{
+			string btnStr = TenkeyButtonName.GetTenkeyButtonTypeName(type);
+
+			if (this.NumStr.Length < this.MaxLength)
+			{
+				this.NumStr += btnStr;
+			}
+		}
+
+		/// <summary>
+		/// 値を削除する
+		/// </summary>
+		/// <param name="type"></param>
+		public void DelStr()
+		{
+			if (this.NumStr.Length > 0)
+			{
+				this.NumStr = this.NumStr.Remove(this.NumStr.Length - 1);
+			}
+		}
+
+		/// <summary>
+		/// 値をクリアする
+		/// </summary>
+		public void ClrStr()
+		{
+			this.NumStr = "";
+		}
 	}
 }
